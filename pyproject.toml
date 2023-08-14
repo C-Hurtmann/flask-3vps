@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "flask-3vps"
+version = "0.1.0"
+description = ""
+authors = ["C-Hurtmann <constantine2903@gmail.com>"]
+readme = "README.md"
+packages = [{include = "flask_3vps"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
