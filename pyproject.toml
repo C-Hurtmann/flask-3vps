@@ -9,6 +9,10 @@ packages = [{include = "flask_3vps"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 flask = "^2.3.2"
+flask-wtf = "^1.1.1"
+boto3 = "^1.28.36"
+flask-sqlalchemy = "^3.0.5"
+requests = "^2.31.0"
 
 
 [build-system]
