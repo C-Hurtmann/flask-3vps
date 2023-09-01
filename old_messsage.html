@@ -1,0 +1,5 @@
+<div class="file-show-section">
+    {% for msg in get_flashed_messages() %}
+    <div class="flash">{{ msg }}</div>
+    {% endfor %}
+</div>

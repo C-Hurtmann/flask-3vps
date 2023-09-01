@@ -3,22 +3,48 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!--Link for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!--Connect my css-->
+    <link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <script src="/static/js/upload.js"></script>
+
     <title>File Upload</title>
   </head>
   <body>
-    <h2>Add link to file</h2>
-    <div class="form-section">
-      <form action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="text" name="url" id="url" required>
-          <input type="submit" value="Upload">
+    <div class="wrapper">
+      <header>Add link to file</header>
+      <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Browse file to upload</p>
       </form>
+      <section class="progress-area">
+        <li class="row">
+          <i class="fas fa-file-alt"></i>
+          <div class="content">
+            <div class="details">
+              <span class="name">http://XXX/100mb.bin * Uploading</span>
+              <span class="percent">50%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+          </div>
+          
+        </li>
+      </section>
+      <section class="uploaded-area">
+        <li class="row">
+          <div class="content">
+            <i class="fas fa-file-alt"></i>
+            <div class="details">
+              <span class="name">http://XXX/100mb.bin * Uploaded</span>
+              <span class="size">100 MB</span>
+            </div>
+          </div>
+          <i class="fas fa-check"></i>
+        </li>
+      </section>
     </div>
-    <div class="file-show-section">
-      {% for msg in get_flashed_messages() %}
-      <div class="flash">{{ msg }}</div>
-      {% endfor %}
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
