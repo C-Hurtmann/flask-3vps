@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <!--Connect my css-->
     <link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
-    <script src="/static/js/upload.js"></script>
-
     <title>File Upload</title>
   </head>
   <body>
     <div class="wrapper">
       <header>Add link to file</header>
       <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+        <input type="text" class="file-input" name="url">
         <i class="fas fa-cloud-upload-alt"></i>
         <p>Browse file to upload</p>
+        <input type="submit" value="Upload">
       </form>
       <section class="progress-area">
         <li class="row">
@@ -46,5 +46,6 @@
         </li>
       </section>
     </div>
+    <script src="static/js/upload.js"></script>
   </body>
 </html>

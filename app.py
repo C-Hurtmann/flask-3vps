@@ -1,14 +1,19 @@
 import os
 import requests
 
-from flask import Flask, render_template, redirect, request, flash
+from celery import Celery
+from flask import Flask, render_template, redirect, request, flash, jsonify, url_for
 
 
 app = Flask(__name__)
 app.config['UPLOAD_DIRECTORY'] = 'uploads/'
 app.config['SECRET_KEY'] = 'your_secret_key_here'
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
 
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
+@celery.task
 def upload_file(url):
     response = requests.get(url)
     if response.status_code == 200:
@@ -19,7 +24,6 @@ def upload_file(url):
         with open(file_path, 'wb') as f:
             f.write(response.content)
         return file_path
-    
 
 @app.route('/')
 def index():
@@ -28,14 +32,8 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload():
     url = request.form['url']
-    
-    file_path = upload_file(url)
-    if file_path:
-        flash('File has been uploaded')
-    else:
-        flash('Error', category='error')
-    
-    return redirect('/')
+    file_path = upload_file.apply_async(args=[url])
+    return redirect(url_for('index'))
 
 
 if __name__ =='__main__':
