@@ -84,7 +84,7 @@ section .row span{
 }
 .progress-bar .progress{
     height: 100%;
-    width: 0%;
+    width: 50%;
     background: #6990f2;
     border-radius: inherit;
 }

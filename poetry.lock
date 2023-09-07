@@ -347,6 +347,22 @@ flask = ">=2.2.5"
 sqlalchemy = ">=1.4.18"
 
 [[package]]
+name = "flask-sse"
+version = "1.0.0"
+description = "Server-Sent Events for Flask"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-SSE-1.0.0.tar.gz", hash = "sha256:4f84714c2549a45e4f17bfc5f68ee8a9f298b22740a6844404d1c74551f2090d"},
+    {file = "Flask_SSE-1.0.0-py2.py3-none-any.whl", hash = "sha256:f86d7ecff0607333755c444130c395e7a133fb7ae6cf76fbd29b1da36d34776b"},
+]
+
+[package.dependencies]
+flask = ">=0.9"
+redis = "*"
+six = "*"
+
+[[package]]
 name = "flask-wtf"
 version = "1.1.1"
 description = "Form rendering, validation, and CSRF protection for Flask with WTForms."
@@ -849,4 +865,4 @@ email = ["email-validator"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "efcf207e5682332e3c0859aad2ad19441a155816f9b6497390ac0e05d4e04cd3"
+content-hash = "f53d516beb0df632b7abbd3bd011c8df33241578d7235ba715342db1b3ea97f4"
