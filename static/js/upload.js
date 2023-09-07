@@ -15,7 +15,7 @@ fileInput.onchange = ({target}) =>{
         uploadFIle(fileUrl); // calling uploadFile with passing file name as an argument
     }
 }
-
+/*
 function uploadFIle(url) {
     let xhr = new XMLHttpRequest(); // creating new xml object (AJAX)
     xhr.open("POST", "/upload"); // sending post request to the specified url
@@ -25,4 +25,4 @@ function uploadFIle(url) {
     let formData = new FormData(form); // formData is an object to easy send form data
     xhr.send(formData); // sending form data to php
 }
-
+*/
