@@ -13,37 +13,15 @@
     <div class="wrapper">
       <header>Add link to file</header>
       <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-        <input type="text" class="file-input" name="url">
+        <input type="file" class="file-input" name="file" hidden>
         <i class="fas fa-cloud-upload-alt"></i>
         <p>Browse file to upload</p>
-        <input type="submit" value="Upload">
       </form>
       <section class="progress-area">
-        <li class="row">
-          <i class="fas fa-file-alt"></i>
-          <div class="content">
-            <div class="details">
-              <span class="name">http://XXX/100mb.bin * Uploading</span>
-              <span class="percent">50%</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-          </div>
-          
-        </li>
+
       </section>
       <section class="uploaded-area">
-        <li class="row">
-          <div class="content">
-            <i class="fas fa-file-alt"></i>
-            <div class="details">
-              <span class="name">http://XXX/100mb.bin * Uploaded</span>
-              <span class="size">100 MB</span>
-            </div>
-          </div>
-          <i class="fas fa-check"></i>
-        </li>
+        
       </section>
     </div>
     <script src="static/js/upload.js"></script>
