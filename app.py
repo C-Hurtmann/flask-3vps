@@ -42,15 +42,6 @@ def upload():
         file_path = upload_file.apply_async(args=[file_data, file_name])
     return redirect(url_for('index'))
 
-@app.route('/stream')
-def stream():
-    
-    def get_data():
-        while True:
-            sleep(1)
-            yield f'Data: {datetime.now()}\n\n'
-    return Response(get_data(), mimetype='text/event-stream')
-
 
 if __name__ =='__main__':
     app.run(debug=True, host='0.0.0.0')
